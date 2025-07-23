@@ -15,6 +15,9 @@ module.exports = {
                 background: 'var(--background)',
                 foreground: 'var(--foreground)',
             },
+            screens: {
+                "navbar": "1100px"
+            }
         },
     },
     plugins: [],
