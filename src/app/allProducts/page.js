@@ -40,38 +40,46 @@ export default function AllProductsPage() {
     return (
         <div className="grid grid-cols-12 gap-6 p-4">
 
-            <div className="col-span-12 md:col-span-3">
-                <h2 className="text-xl font-bold mb-3">Kategoriler</h2>
-                <ul className="space-y-2 mb-8">
-                    <li
-                        className={`cursor-pointer ${!filteredCategory ? "font-bold text-cyan-700" : ""}`}
-                        onClick={() => setFilteredCategory(null)}
-                    >
-                        Tüm Ürünler
-                    </li>
-                    {categories.map((cat) => (
-                        <li
-                            key={cat}
-                            className={`cursor-pointer ${filteredCategory === cat ? "font-bold text-cyan-700" : ""}`}
-                            onClick={() => setFilteredCategory(cat)}
-                        >
-                            {cat}
-                        </li>
-                    ))}
-                </ul>
 
-                <h2 className="text-lg font-semibold mb-3">Sıralama</h2>
-                <ul className="space-y-2">
-                    {sortOptions.map((opt) => (
-                        <li
-                            key={opt.value}
-                            className={`cursor-pointer ${sortOption === opt.value ? "font-bold text-cyan-700" : ""}`}
-                            onClick={() => setSortOption(opt.value)}
-                        >
-                            {opt.label}
-                        </li>
-                    ))}
-                </ul>
+            <div className="col-span-12 md:col-span-3">
+
+                <div className="flex flex-col min-[300px]:flex-row md:flex-col gap-6">
+                    <div className="w-full min-[650px]:w-1/2 md:w-full">
+                        <h2 className="text-xl font-bold mb-3">Kategoriler</h2>
+                        <ul className="space-y-2 mb-8">
+                            <li
+                                className={`cursor-pointer ${!filteredCategory ? "font-bold text-cyan-700" : ""}`}
+                                onClick={() => setFilteredCategory(null)}
+                            >
+                                Tüm Ürünler
+                            </li>
+                            {categories.map((cat) => (
+                                <li
+                                    key={cat}
+                                    className={`cursor-pointer ${filteredCategory === cat ? "font-bold text-cyan-700" : ""}`}
+                                    onClick={() => setFilteredCategory(cat)}
+                                >
+                                    {cat}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="w-full min-[650px]:w-1/2 md:w-full">
+                        <h2 className="text-lg font-semibold mb-3">Sıralama</h2>
+                        <ul className="space-y-2">
+                            {sortOptions.map((opt) => (
+                                <li
+                                    key={opt.value}
+                                    className={`cursor-pointer ${sortOption === opt.value ? "font-bold text-cyan-700" : ""}`}
+                                    onClick={() => setSortOption(opt.value)}
+                                >
+                                    {opt.label}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </div>
 
 

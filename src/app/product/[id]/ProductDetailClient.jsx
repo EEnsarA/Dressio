@@ -86,38 +86,62 @@ function ProductDetailClient({ product }) {
 
     return (
         <>
-            <div className="grid grid-cols-2 gap-4 mt-20 p-5">
-                <div className="p-6 max-w-2xl mx-auto ">
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-6 mt-20 p-5">
+                {/* Görsel */}
+                <div className="p-2 md:p-6">
                     <img
                         src={product.image}
                         alt={product.title}
-                        className="w-full h-96 object-contain mb-6"
+                        className="w-full h-64 md:h-96 object-contain"
                     />
                 </div>
-                <div>
 
-                    <h1 className="text-4xl font-bold mb-2">{product.title}</h1>
-                    <p className="text-3xl font-bold text-cyan-700 mb-4 mt-4">{product.price}$</p>
-                    <p className="text-gray-600">{product.description}</p>
-                    <div className="mt-6 flex items-center gap-3 flex-col">
-                        <div className='flex flex-row w-full justify-between mt-5'>
-                            <Rating size='large' value={totalRating} defaultValue={5} readOnly />
-                            <div className='flex flex-row w-full justify-end items-center'>
-                                <p className='text-2x1 font-semibold'>Adet - {count}</p>
-                                <div className='ml-6'>
-                                    <FaCaretUp onClick={increaseCount} className='cursor-pointer' />
-                                    <FaCaretDown onClick={decreaseCount} className='cursor-pointer' />
+                {/* Bilgiler */}
+                <div className="flex flex-col justify-between gap-4 mt-4 md:mt-0">
+                    <div>
+                        <h1 className="text-xl md:text-4xl font-bold mb-2">{product.title}</h1>
+                        <p className="text-lg md:text-3xl font-bold text-cyan-700 mb-4">{product.price}$</p>
+                        <p className="text-sm md:text-base text-gray-600">{product.description}</p>
+                    </div>
+
+                    <div className="flex flex-col gap-4 mt-2 lg:mb-10">
+                        <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-3">
+
+                            <div>
+                                <div className="block md:hidden">
+                                    <Rating size="small" value={totalRating} readOnly />
+                                </div>
+                                <div className="hidden md:block">
+                                    <Rating size="large" value={totalRating} readOnly />
+                                </div>
+                            </div>
+
+
+                            <div className="flex items-center gap-2">
+                                <p className="text-sm lg:text-lg font-semibold">Adet -  {count}</p>
+                                <div className="flex flex-col ml-2">
+                                    <FaCaretUp onClick={increaseCount} className="cursor-pointer text-base" />
+                                    <FaCaretDown onClick={decreaseCount} className="cursor-pointer text-base" />
                                 </div>
                             </div>
                         </div>
-                        <div className='flex flex-row w-full justify-between mt-5'>
-                            <ButtonH className="rounded w-120 h-10 bg-cyan-600 px-4 py-2 text-md font-mono font-semibold text-white data-active:bg-cyan-700 data-hover:bg-cyan-700 cursor-pointer" onClick={addCart}>Sepete Ekle</ButtonH>
-                            <Button variant="outlined" color='error' size="medium" onClick={addFav}>
-                                {fav ?
-                                    <MdFavorite size={24} />
 
-                                    : <MdFavoriteBorder size={24} />
-                                }
+                        <div className="flex flex-col sm:flex-row gap-3">
+                            <ButtonH
+                                className="rounded lg:w-120 h-10 bg-cyan-600 px-4 py-2 text-sm md:text-md font-mono font-semibold text-white hover:bg-cyan-700 w-full sm:w-auto"
+                                onClick={addCart}
+                            >
+                                Sepete Ekle
+                            </ButtonH>
+
+                            <Button
+                                variant="outlined"
+                                color="error"
+                                size="small"
+                                onClick={addFav}
+                                className="w-full sm:w-auto"
+                            >
+                                {fav ? <MdFavorite size={20} /> : <MdFavoriteBorder size={20} />}
                             </Button>
                         </div>
                     </div>

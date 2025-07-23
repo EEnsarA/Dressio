@@ -14,14 +14,14 @@ export default async function Home() {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2   gap-6 p-3 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-3 mt-8">
 
-        <div className="h-[550px]">
+        <div className="hidden md:block h-[300px] md:h-[550px]">
           <ProductCard product={bannerProduct} large={true} />
         </div>
 
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-4">
           {products.slice(3, 7).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
